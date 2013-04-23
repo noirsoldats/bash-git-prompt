@@ -38,10 +38,6 @@ GIT_PROMPT_REMOTE=" "
 GIT_PROMPT_UNTRACKED="…"
 GIT_PROMPT_CLEAN="${BGreen}✔"
 
-PROMPT_START="$Yellow$PathShort$ResetColor"
-PROMPT_END=" \n$WHITE$Time12a$ResetColor $ "
-
-
 function update_current_git_vars() {
     unset __CURRENT_GIT_STATUS
     local gitstatus="${__GIT_PROMPT_DIR}/gitstatus.py"
@@ -90,9 +86,9 @@ function setGitPrompt() {
 	  fi
 	  STATUS="$STATUS$ResetColor$GIT_PROMPT_SUFFIX"
 
-	  PS1="$PYTHON_VIRTUALENV$PROMPT_START$STATUS$PROMPT_END"
+        echo "$STATUS"
 	else
-	  PS1="$PROMPT_START$PROMPT_END"
+        echo ""
 	fi
 }
 
@@ -104,5 +100,3 @@ function set_virtualenv () {
       PYTHON_VIRTUALENV="${BLUE}(`basename \"$VIRTUAL_ENV\"`)${ResetColor} "
   fi
 }
-
-PROMPT_COMMAND=setGitPrompt
