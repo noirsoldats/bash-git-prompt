@@ -86,9 +86,9 @@ function setGitPrompt() {
 	  fi
 	  STATUS="$STATUS$ResetColor$GIT_PROMPT_SUFFIX"
 
-        echo "$STATUS"
+        printf "$STATUS"
 	else
-        echo ""
+        printf ""
 	fi
 }
 
